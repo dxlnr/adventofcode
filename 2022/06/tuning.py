@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print("\t", find_marker(s4))
     print("\t", find_marker(s5))
 
-    with open("input.txt", "r") as f:
+    with open("puzzle", "r") as f:
         t = f.read().replace('\n', '')
         print("\nanswer: ", find_marker(t),"\n")
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     print("\t", find_marker(s4, 14))
     print("\t", find_marker(s5, 14))
 
-    with open("input.txt", "r") as f:
+    with open("puzzle", "r") as f:
         t = f.read().replace('\n', '')
         print("\nanswer: ", find_marker(t, 14),"\n")
 
