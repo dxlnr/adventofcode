@@ -19,7 +19,7 @@ if __name__ == "__main__":
                     break
 
             assert len(g) % 2 == 0, "ERROR: Parsing error."
-            m = [0,0,0]
+            m = [0, 0, 0]
             for n, cube in zip(*[iter(g)] * 2):
                 if cube == "red" and int(n) > m[0]:
                     m[0] = int(n)
