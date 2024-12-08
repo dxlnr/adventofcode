@@ -6,7 +6,6 @@ def quicksort(arr: list[int], start: int, end: int) -> list[int]:
                 i += 1
                 arr[idx] = arr[i]
                 arr[i] = ele
-
             if idx == end:
                 i += 1
                 arr[idx] = arr[i]
@@ -22,6 +21,5 @@ def quicksort(arr: list[int], start: int, end: int) -> list[int]:
 
 
 if __name__ == '__main__':
-    # test = [3,4,2,1,3,3]
     test = [8,2,4,7,1,3,9,6,5]
     print(quicksort(test, 0, len(test) - 1))

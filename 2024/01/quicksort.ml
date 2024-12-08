@@ -5,17 +5,30 @@ let swap arr i j =
     arr
 ;;
 let partition arr st en = 
-    (* let i = -1 in *)
-    (* List.iter arr *)
-    arr
-let quicksort arr st en = 
-    if st < en then 
-        let arr = partition arr st en in
+    let i = ref (-1) in
+    let arr = ref arr in
+    for idx = 0 to (List.length !arr - 1) do
+        if List.nth !arr idx < List.nth !arr en then 
+            begin 
+                i := !i + 1; 
+                arr := swap !arr !i idx;
+            end;
+        if idx = en then 
+            begin
+                i := !i + 1; 
+                arr := swap !arr !i idx;
+            end
+    done;
+    (!arr, !i)
+let rec quicksort arr st en = 
+    if st < en then
+        let (arr, pivot) = partition arr st en in
+        let arr = quicksort arr st (pivot - 1) in
+        let arr = quicksort arr (pivot + 1) en in
         arr
     else
         arr
 ;;
-
 
 let () = 
     let test = quicksort [8;2;4;7;1;3;9;6;5] 0 8 in
