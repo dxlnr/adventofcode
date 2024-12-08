@@ -44,4 +44,9 @@ let () =
   let content = read file in
   let a, b = splitlines content in
 
-  print_endline ""
+  let a = Quicksort.quicksort a 0 (List.length a - 1) in
+  let b = Quicksort.quicksort b 0 (List.length b - 1) in
+
+  let res = suml (List.map (fun (x, y) -> abs (x - y)) (List.combine a b)) in
+
+  print_endline (string_of_int res)
