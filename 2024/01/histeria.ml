@@ -11,6 +11,11 @@ let rec suml lst =
   | [ x ] -> x
   | head :: second :: tail -> suml ((head + second) :: tail)
 
+let rec countl lst n r =
+  match lst with
+  | [] -> r
+  | x :: tail -> if x = n then countl tail n (r + 1) else countl tail n r
+
 let read fn =
   (* open_in: string -> in_channel *)
   let ic = open_in file in
@@ -48,5 +53,13 @@ let () =
   let b = Quicksort.quicksort b 0 (List.length b - 1) in
 
   let res = suml (List.map (fun (x, y) -> abs (x - y)) (List.combine a b)) in
+
+  print_endline (string_of_int res)
+
+let () =
+  let content = read file in
+  let a, b = splitlines content in
+
+  let res = suml (List.map (fun x -> x * countl b x 0) a) in
 
   print_endline (string_of_int res)
